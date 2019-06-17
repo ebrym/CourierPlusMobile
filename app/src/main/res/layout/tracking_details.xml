@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#000000"
+    android:fadeScrollbars="true"
+    android:layout_width="fill_parent"
+    android:fillViewport="true"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical"
+    android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:background="@drawable/roundborder"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:scrollbars="vertical" >
+ 
+
+    
+    <ImageView
+    android:src="@android:drawable/divider_horizontal_bright"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:scaleType="fitXY"
+    android:paddingBottom="10dp" />
+    
+
+    <TextView
+        android:id="@+id/txtHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TRACKING NUMBER"
+        android:textColor="#000000"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/txtDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        android:text="POD" />
+
+    
+    
+    <ImageView
+    android:src="@android:drawable/divider_horizontal_bright"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:scaleType="fitXY"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp" 
+    android:paddingTop="10dp" />
+    
+    <TextView
+        android:id="@+id/txtBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        android:text="Details" />
+    
+<!--           <View -->
+<!--             android:id="@+id/view1" -->
+<!--             android:layout_width="fill_parent" -->
+<!--     		android:background="#909090" -->
+<!--             android:layout_height="2dp"  -->
+<!--     		android:paddingTop="10dp" />  -->
+            
+        <TableLayout
+            android:id="@+id/tbTable"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            
+            <View
+                android:layout_height="2dip"
+                android:background="#FF909090" />
+            
+            
+        </TableLayout>
+     
+<LinearLayout
+    android:id="@+id/linearLayoutItemDetails"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:layout_gravity="fill_horizontal"
+    android:orientation="vertical"
+    android:scrollbars="horizontal|vertical" >
+
+       <TextView
+        android:id="@+id/txtItemHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"
+        android:text="TRACKING DETAILS"
+        android:textAppearance="?android:attr/textAppearanceMedium"  />
+       
+
+           <TableLayout
+            android:id="@+id/tbDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,1,2" 
+            android:scrollbars="horizontal">
+
+            <!-- android:layout_weight=".25" -->
+
+            <View
+                android:layout_height="2dip"
+                android:background="#FF909090" />
+            
+            <TableRow android:background="@color/colorPrimary"
+                android:scrollbars="horizontal"
+                android:layout_width="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:text="  Activity"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:text="Location"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:text="Date"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#FFFFFF" />
+
+            </TableRow>
+
+            <View
+                android:layout_height="2dip"
+                android:background="#FF909090" />
+           
+        </TableLayout>
+  
+</LinearLayout>
+        
+        
+</LinearLayout>
+</ScrollView>

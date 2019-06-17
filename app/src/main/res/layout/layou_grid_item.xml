@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/gdAwbno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AWBNO"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/gdOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ORIGIN" />
+
+    <TextView
+        android:id="@+id/gdDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DEST." />
+    <TextView
+        android:id="@+id/gdOperation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OP" />
+    <TextView
+        android:id="@+id/gdDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DATE" />
+
+</LinearLayout>

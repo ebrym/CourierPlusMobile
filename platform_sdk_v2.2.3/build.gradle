@@ -1,0 +1,4 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('platform_sdk_v2.2.3.jar'))
+dependencies {
+}

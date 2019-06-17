@@ -1,0 +1,201 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrShipmentView"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/shipmentdetailsView"
+            android:orientation="vertical" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SHIPMENT DETAILS"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"/>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*Waybill Number :"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"/>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="1"
+            android:padding="10dp"
+            android:layout_columnSpan="2">
+            <EditText
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:inputType="text"
+                android:ems="15"
+                android:id="@+id/txtPickUpWaybillNumber"/>
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/btnbarcode"
+                android:layout_margin="5dp"
+                android:background="@drawable/barcode"
+                android:layout_gravity="bottom"/>
+        </LinearLayout>
+            <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/GridLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="20"
+                android:padding="10dp"
+                android:orientation="horizontal"
+                tools:context=".GridLayoutActivity">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*Weight (kg)"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_column="0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*Piece(s)"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_column="1" />
+            <EditText
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:text="0.00"
+                    android:layout_column="0"
+                    android:id="@+id/txtPickupWeight" />
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:layout_column="1"
+                android:id="@+id/txtPickupPieces" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description :"
+                android:textStyle="bold"
+                android:layout_column="0"
+                android:layout_columnSpan="2"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="text"
+                android:ems="10"
+                android:id="@+id/txtDescription"
+                android:layout_column="0"
+                android:layout_columnSpan="2"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Packaging"
+                android:textStyle="bold"
+                android:layout_column="0"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Box/Crating"
+                android:textStyle="bold"
+                android:layout_column="1"/>
+            <Spinner
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:id="@+id/spnPickUpPackaging"
+                android:layout_weight="1"
+                android:layout_column="0"/>
+            <Spinner
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:id="@+id/spnPickUpBoxCrating"
+                android:layout_weight="1"
+                android:layout_column="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Declared Value :"
+                android:textStyle="bold"
+                android:layout_column="0"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Insurance :"
+                android:textStyle="bold"
+                android:layout_column="1" />
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:inputType="numberDecimal"
+                android:ems="15"
+                android:text="0.00"
+                android:id="@+id/txtPickUpDeclaredValue"
+                android:layout_column="0" />
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:inputType="numberDecimal"
+                android:ems="15"
+                android:text="0.00"
+                android:id="@+id/txtPickUpInsurance"
+                android:layout_column="1" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crating Value :"
+                android:textStyle="bold"
+                android:layout_column="0" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*Express Center : "
+                android:textStyle="bold"
+                android:layout_column="1"
+                android:textColor="@color/colorPrimary"/>
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:inputType="numberDecimal"
+                android:ems="15"
+                android:text="0.00"
+                android:id="@+id/txtPickUpCratingValue"
+                android:layout_column="0" />
+            <Spinner
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:id="@+id/spnPickUpExpressCenter"
+                android:layout_column="1"/>
+            </GridLayout>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

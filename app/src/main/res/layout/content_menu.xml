@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.courierplus.mobile.MenuActivity"
+    tools:showIn="@layout/activity_menu">
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/GridLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:padding="40dp"
+        android:orientation="horizontal"
+        tools:context=".GridLayoutActivity">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnUpload"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/sync"
+            android:text="Upload"
+            android:ems="10"
+            android:textStyle="bold"
+            android:textColor="@color/colorText"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnNotification"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/packages"
+            android:text="Pick up"
+            android:ems="10"
+            android:textStyle="bold"
+            android:textColor="@color/colorText"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnScan"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/menuscan"
+            android:text="Scan"
+            android:ems="10"
+            android:textStyle="bold"
+            android:textColor="@color/colorText"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnPod"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/mnupod"
+            android:text="POD"
+            android:ems="10"
+            android:textStyle="bold"
+            android:textColor="@color/colorText"/>
+
+
+
+    </GridLayout>
+
+</android.support.v4.widget.NestedScrollView>

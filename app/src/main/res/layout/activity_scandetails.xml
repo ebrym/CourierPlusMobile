@@ -1,0 +1,134 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:id="@+id/scansLayout"
+    android:orientation="vertical">
+
+    <TextView
+    android:layout_width="fill_parent"
+    android:layout_height="20dp"
+    android:text="Airway Bill Number : "
+    android:textStyle="bold"
+    android:textColor="@color/colorPrimary"/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:ems="10"
+            android:id="@+id/txtAwbno"
+            android:maxLines="1"
+            android:textCursorDrawable="@null"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColor="@color/colorPrimary" />
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/btnbarcode"
+            android:layout_margin="5dp"
+            android:background="@drawable/barcode"
+            android:layout_gravity="bottom"/>
+        </LinearLayout>
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:columnCount="2"
+        android:rowCount="1"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        tools:context=".GridLayoutActivity">
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:text="Scan Count : "
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"/>
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:id="@+id/lblScanCount"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"/>
+    </GridLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView" >
+        <TableLayout
+            android:id="@+id/tbDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,1,2,3"
+            android:scrollbars="horizontal">
+
+            <!-- android:layout_weight=".25" -->
+
+            <View
+                android:layout_height="2dip"
+                android:background="#FF909090" />
+
+            <TableRow android:background="@color/colorPrimary"
+                android:scrollbars="horizontal"
+                android:layout_width="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:text="AWBNO"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#FFFFFF" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:text="KG"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#FFFFFF" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:text="ORG"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:padding="3dip"
+                    android:text="DES"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#FFFFFF" />
+
+            </TableRow>
+
+            <View
+                android:layout_height="2dip"
+                android:background="#FF909090" />
+
+        </TableLayout>
+</ScrollView>
+    <Button
+        android:id="@+id/btnSave"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Save"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorPrimary"/>
+
+
+
+</LinearLayout>

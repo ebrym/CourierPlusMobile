@@ -1,0 +1,272 @@
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:id="@+id/podLayout"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView" >
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/detailsView"
+                android:orientation="vertical" >
+        <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/GridLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="20"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            tools:context=".GridLayoutActivity">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pickup Date"
+                android:layout_row="0"
+                android:layout_columnSpan="2" />
+
+            <TextView
+                android:id="@+id/txtExitDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_column="0"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+            <Button
+                android:id="@+id/changeDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="Change Date" />
+
+
+            <!--<EditText-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:inputType="datetime"-->
+                <!--android:ems="15"-->
+                <!--android:id="@+id/txtExitDate"-->
+                <!--android:layout_columnSpan="2" />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:layout_column="0"
+                android:layout_columnSpan="2" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/spnPodStatus"
+                android:layout_weight="1"
+                android:layout_columnSpan="2"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recieved by :"
+                android:layout_columnSpan="2" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="text"
+                android:ems="15"
+                android:id="@+id/txtRecievedBy"
+                android:layout_columnSpan="2" />
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="First Date"-->
+                <!--android:layout_row="0"-->
+                <!--android:layout_columnSpan="2" />-->
+            <!--<EditText-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:inputType="datetime"-->
+                <!--android:ems="15"-->
+                <!--android:id="@+id/txtFirstDate"-->
+                <!--android:layout_columnSpan="2" />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Origin"
+                android:layout_row="0"
+                android:layout_columnSpan="1" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery Station"
+                android:layout_row="0"
+                android:layout_columnSpan="1" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/spnPodOrigin"
+                android:layout_weight="1"
+                android:layout_columnSpan="1"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/spnPodDeliveryStation"
+                android:layout_weight="1"
+                android:layout_columnSpan="1"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Multiple POD"
+                android:id="@+id/chkMultiplePOD"
+                android:layout_column="0"
+                android:layout_columnSpan="2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Airway Bill Number :"
+                android:layout_column="0"
+                android:layout_columnSpan="2"/>
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:columnCount="3"
+                    android:rowCount="1"
+                    android:padding="10dp"
+                    android:layout_columnSpan="2">
+
+                    <EditText
+                        android:layout_width="300dp"
+                        android:layout_height="50dp"
+                        android:inputType="text"
+                        android:layout_weight="1"
+                        android:ems="15"
+                        android:id="@+id/txtPodAwbno"/>
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/btnbarcode"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/barcode"
+                        android:layout_gravity="bottom"/>
+                </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnSignature"
+                style="?android:textAppearanceSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Signature"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimary"/>
+            <Button
+                android:id="@+id/btnSavePod"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Save"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimary"/>
+
+        </GridLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="POD DETAILS"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"/>
+
+
+
+            <TableLayout
+                android:id="@+id/tbPodDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stretchColumns="0,1,2,3"
+                android:scrollbars="horizontal">
+
+                <!-- android:layout_weight=".25" -->
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+                <TableRow android:background="@color/colorPrimary"
+                    android:scrollbars="horizontal"
+                    android:layout_width="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:padding="3dip"
+                        android:text="AWBNO"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#FFFFFF" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:padding="3dip"
+                        android:text="ORG"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#FFFFFF" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:padding="3dip"
+                        android:text="POD"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#FFFFFF" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:padding="3dip"
+                        android:text="DATE"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#FFFFFF" />
+
+                </TableRow>
+
+                <View
+                    android:layout_height="2dip"
+                    android:background="#FF909090" />
+
+            </TableLayout>
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total POD NOT UPLOADED :"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimary"
+            android:orientation="vertical"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtTotalPOD"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:orientation="vertical"
+                android:textColor="@color/colorPrimary"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    </LinearLayout>
+
+
