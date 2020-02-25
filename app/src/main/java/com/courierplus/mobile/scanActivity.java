@@ -65,12 +65,16 @@ public class scanActivity extends AppCompatActivity {
         loadSpnOrigin();
         loadSpnScanStatus();
         loadSpnContent();
-
-        if (Global.globalBatchNo.isEmpty()){
+        Log.d("status: ", "> " + Global.globalBatchStatus);
+        if  (Global.globalBatchStatus == false){
             Long tsLong = System.currentTimeMillis()/1000;
             String ts = tsLong.toString();
             lblBatchNo.setText(Global.globalUserName + ts);
+            Global.globalBatchStatus = true;
         }
+        //else{
+//            lblBatchNo.setText(Global.globalBatchNo);
+//        }
 
 
 
@@ -80,7 +84,25 @@ public class scanActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("Destination: ", "> " + String.valueOf(parent.getItemAtPosition(position).toString()));
                 String status = String.valueOf(parent.getItemAtPosition(position).toString());
-                if(status.contentEquals("With Delivery Courier"))
+                if(status.contentEquals("Shipment is out for Delivery"))
+                {
+                    loadSpnRoute();
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spndestination.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //Log.d("Destination: ", "> " + String.valueOf(parent.getItemAtPosition(position).toString()));
+                String status = String.valueOf(spnStatus.getSelectedItem());
+                if(status.contentEquals("Shipment is out for Delivery"))
                 {
                     loadSpnRoute();
                 }
@@ -94,6 +116,8 @@ public class scanActivity extends AppCompatActivity {
         });
 
 
+
+
         // event for scans
         btnNewBatch = (Button)findViewById(R.id.btnNewBatch);
         btnNewBatch.setOnClickListener(new View.OnClickListener()
@@ -103,6 +127,7 @@ public class scanActivity extends AppCompatActivity {
                 Long tsLong = System.currentTimeMillis()/1000;
                 String ts = tsLong.toString();
                 lblBatchNo.setText(Global.globalUserName + ts);
+
             }
         });
 
@@ -166,6 +191,8 @@ public class scanActivity extends AppCompatActivity {
         // attaching data adapter to spinner
         spnorigin.setAdapter(dataAdapter);
         spndestination.setAdapter(dataAdapter);
+
+
     }
     private void loadSpnScanStatus() {
         // database handler
@@ -302,9 +329,12 @@ public class scanActivity extends AppCompatActivity {
         // TODO Auto-generated method stub
         super.onResume();
 
-        Long tsLong = System.currentTimeMillis()/1000;
-        String ts = tsLong.toString();
-        lblBatchNo.setText(Global.globalUserName + ts);
+        if  (Global.globalBatchStatus == false){
+            Long tsLong = System.currentTimeMillis()/1000;
+            String ts = tsLong.toString();
+            lblBatchNo.setText(Global.globalUserName + ts);
+            Global.globalBatchStatus = true;
+        }
     }
 
 }

@@ -82,6 +82,67 @@ public class DataDB {
 		}
 		return DeviceType;
 	}
+	public String getDeviceID(Context context){
+		con = new Connection(context);
+		String DeviceID = "";
+		try {
+			con.createDataBase();
+		} catch (IOException e) {
+		}
+
+		if(con.checkDataBase()){
+			con.openDataBase();
+			SQLiteDatabase db = con.getWritableDatabase();
+			Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username<>'admin'", null);
+
+			if (cursor.getCount() < 1) // UserName Not Exist
+			{
+				cursor.close();
+			} else {
+				if (cursor.moveToFirst()) {
+					DeviceID = cursor.getString(cursor.getColumnIndex("DeviceID"));
+
+					cursor.close();
+				}
+				cursor.close();
+			}
+
+		}else{
+
+		}
+		return DeviceID;
+	}
+	public String getUserID(Context context){
+		con = new Connection(context);
+		String UserID = "";
+		try {
+			con.createDataBase();
+		} catch (IOException e) {
+		}
+
+		if(con.checkDataBase()){
+			con.openDataBase();
+			SQLiteDatabase db = con.getWritableDatabase();
+			Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username<>'admin'", null);
+
+			if (cursor.getCount() < 1) // UserName Not Exist
+			{
+				cursor.close();
+			} else {
+				if (cursor.moveToFirst()) {
+					UserID = cursor.getString(cursor.getColumnIndex("username"));
+
+					cursor.close();
+				}
+				cursor.close();
+			}
+
+		}else{
+
+		}
+		return UserID;
+	}
+
 	public Cursor getUserList(Context context){
 		con = new Connection(context);
 

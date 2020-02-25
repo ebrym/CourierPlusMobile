@@ -257,7 +257,7 @@ public class ScanDetailsActivity extends AppCompatActivity {
 
                 String result = data.getStringExtra("BarcodeData");
                 txtAwbno.setText(result);
-                if(!result.toString().matches("^([a-zA-Z0-9]+$)") || result.toString().length() < 8)
+                if(!result.toString().matches("x") || result.toString().length() < 8)
                 {
                     Global.AssetDialog("Invalid waybill number!!!", ScanDetailsActivity.this).create().show();
                 }else{
@@ -316,6 +316,7 @@ public class ScanDetailsActivity extends AppCompatActivity {
                     appendDetailsTop(tbDetails,txtAwbno.getText().toString().trim(),Global.globalWeight,Global.globalOrigin,Global.globalDestination);
                     scanCount+=1;
                     lblScanCount.setText(String.valueOf(scanCount));
+                    Global.globalBatchStatus = true;
                     txtAwbno.setText("");
                     txtAwbno.requestFocus();
                 }else{

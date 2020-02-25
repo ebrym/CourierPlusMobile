@@ -46,6 +46,7 @@ public class MenuActivity extends AppCompatActivity {
             Global.globalLocationEnabled=true;
 
 
+        Global.globalBatchStatus = false;
 
         //start gps service
         //stopService(new Intent(MenuActivity.this, GPSService.class));
@@ -251,4 +252,12 @@ public class MenuActivity extends AppCompatActivity {
         }
     }
 */
+
+    @Override
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+
+        Global.globalBatchStatus = false;
+    }
 }

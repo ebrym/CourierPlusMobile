@@ -30,6 +30,7 @@ public class SyncData extends Service {
     String jsonStr;
     public SharedPreferences prefs;
     private static Timer timer = new Timer();
+    public static final String USER_DETAILS = "UserSettingsDetails";
     private Context ctx;
     uploadData  upData =   new uploadData();
     @Override
@@ -44,7 +45,11 @@ public class SyncData extends Service {
         db=new DataDB();
        // uploadData.;
 
+//            String prefsDeviceID = prefs.getString("DeviceID", "");
+//            String prefsUserID = prefs.getString("UserID", "");
 
+//            Log.d("SYNC: DEVICEID ", prefs.getString("DeviceID", "NA") );
+//           Log.d("SYNC: USERID ", prefs.getString("UserID", "NA") );
 
         timer.scheduleAtFixedRate(new mainTask(), 60000, 120000);
     }
@@ -53,11 +58,7 @@ public class SyncData extends Service {
     {
         public void run()
         {
-            String prefsDeviceID = prefs.getString("DeviceID", null);
-            String prefsUserID = prefs.getString("UserID", null);
 
-            Log.d("SYNC: DEVICEID ", prefsDeviceID );
-            Log.d("SYNC: USERID ", prefsUserID );
 
            /* if(Global.globalUserName.toString().equals("") || Global.globalDeviceIMEI.toString().equals("")) {
 
@@ -423,10 +424,11 @@ public class SyncData extends Service {
         protected String doInBackground(String... arg0) {
             // Creating service handler class instance
             WebRequest webreq = new WebRequest();
-
+            //prefs = getSharedPreferences(USER_DETAILS,MODE_PRIVATE);
 //            String prefsDeviceID = prefs.getString("DeviceID", null);
 //            String prefsUserID = prefs.getString("UserID", null);
-//
+//  String DeviceID = prefs.getString("DeviceID", "NA");//arg0[1];
+//                String UserID = prefs.getString("UserID", "NA");//arg0[2];
 //            Log.d("SYNC: DEVICEID ", prefsDeviceID );
 //            Log.d("SYNC: USERID ", prefsUserID );
             // add parameter or query string
@@ -435,8 +437,8 @@ public class SyncData extends Service {
             // create new instance of the DB class
 
             if(arg0[0] == "POD"){
-                String DeviceID = arg0[1];
-                String UserID = arg0[2];
+                String DeviceID = db.getDeviceID(SyncData.this);//arg0[1];
+                String UserID = db.getUserID(SyncData.this);//arg0[2];
                 String AwbNo = arg0[3];
                 String pod = arg0[4];
                 String podby = arg0[5];
@@ -478,8 +480,8 @@ public class SyncData extends Service {
                 }
             }
             if(arg0[0] == "CHMPOD"){
-                String DeviceID = arg0[1];
-                String UserID = arg0[2];
+                String DeviceID = db.getDeviceID(SyncData.this);//arg0[1];
+                String UserID = db.getUserID(SyncData.this);//arg0[2];
                 String AwbNo = arg0[3];
                 String ReceivedBy = arg0[4];
                 String DateReceived = arg0[5];
@@ -507,8 +509,8 @@ public class SyncData extends Service {
                 }
             }
             if(arg0[0] == "SCANS"){
-                String DeviceID = arg0[1];
-                String UserID = arg0[2];
+                String DeviceID = db.getDeviceID(SyncData.this);//arg0[1];
+                String UserID = db.getUserID(SyncData.this);//arg0[2];
                 String AwbNo = arg0[3];
                 String Scan_Status = arg0[4];
                 String Origin = arg0[5];
@@ -576,8 +578,8 @@ public class SyncData extends Service {
             }
             if(arg0[0] == "SIGNATURE"){
 
-                String DeviceID = arg0[1];
-                String UserID = arg0[2];
+                String DeviceID = db.getDeviceID(SyncData.this);//arg0[1];
+                String UserID = db.getUserID(SyncData.this);//arg0[2];
                 String AwbNo = arg0[3];
                 String Signature = arg0[4];
                 String DateCreated = arg0[5];
@@ -609,7 +611,8 @@ public class SyncData extends Service {
             }
             if(arg0[0] == "PICKUP"){
 
-                String DeviceID = arg0[1];
+
+                String DeviceID = db.getDeviceID(SyncData.this);//arg0[1];
                 String AcctNo = arg0[2];
                 String AwbNo = arg0[3];
                 String COMPANY_NAME = arg0[4];
@@ -629,7 +632,7 @@ public class SyncData extends Service {
                 String Pieces = arg0[18];
                 String Recipient_Gsm = arg0[19];
                 String Senders_Gsm = arg0[20];
-                String UserID = arg0[21];
+                String UserID = db.getUserID(SyncData.this);//arg0[21];
                 String Weight = arg0[22];
                 String senders_name = arg0[23];
                 String SENDERS_EMAIL = arg0[24];

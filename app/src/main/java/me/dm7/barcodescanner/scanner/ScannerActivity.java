@@ -106,7 +106,7 @@ public class ScannerActivity extends Activity implements
 
             if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
                 Log.e("permission", "granted");
-               mScannerView.setResultHandler(ScannerActivity.this);
+                mScannerView.setResultHandler(ScannerActivity.this);
                 mScannerView.startCamera(mCameraId);
                 mScannerView.setFlash(mFlash);
                 mScannerView.setAutoFocus(mAutoFocus);

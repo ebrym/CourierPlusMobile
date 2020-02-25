@@ -41,7 +41,7 @@ public class Global {
     static String ErrorMessageToReturn = "";
 
     public static String globalAWBno = "";
-
+    public static Boolean globalBatchStatus = false;
     public static String globalOrigin = "";
     public static String globalDestination = "";
     public static String globalPodDeliveryStation = "";

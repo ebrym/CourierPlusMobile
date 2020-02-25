@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final String USER_DETAILS = "UserSettingsDetails";
     DataDB db;
 
-    public SharedPreferences.Editor userPreference ;
+    //public SharedPreferences.Editor userPreference ;
 
 
 
@@ -71,27 +71,36 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 //
-        userPreference = getSharedPreferences(USER_DETAILS, MODE_PRIVATE).edit();
+       // userPreference = getSharedPreferences(USER_DETAILS, MODE_PRIVATE).edit();
         // get deviceid
+
+
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
         {
             String[] per = {Manifest.permission.READ_PHONE_STATE};
             requestPermissions(per, 1);
 
-                    if (ActivityCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            Global.globalDeviceIMEI  = tm.getImei();
-                        }
-                    } else {
-                        Global.globalDeviceIMEI  = tm.getDeviceId();
-                    }
+            if (ActivityCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    Global.globalDeviceIMEI  = tm.getImei();
+                }else {
+                    Global.globalDeviceIMEI  = tm.getDeviceId();
+                }
+
+            }
+//            else {
+//
+//                //Log.d("Here : ", "> not build");
+//                Global.globalDeviceIMEI  = tm.getDeviceId();
+//            }
         }else{
+
+            //Log.d("Here : ", "> Default");
             Global.globalDeviceIMEI  = tm.getDeviceId();
         }
 
-
-        Log.d("User IMEI : ", Global.globalDeviceIMEI);
+       // Log.d("User IMEI : ", Global.globalDeviceIMEI);
 
 
 
@@ -237,14 +246,15 @@ public class LoginActivity extends AppCompatActivity {
 
                     mProgressView = ProgressDialog.show(LoginActivity.this, "","Please wait...", true);
                     String sql = "INSERT INTO users" +
-                            "(username,password,Devicetype"+
+                            "(username,password,DeviceID,Devicetype"+
                             ")VALUES('" + userName.toString() + "',"+
                             "'" + newpassword.toString() + "'," +
+                            "'" + Global.globalDeviceIMEI+ "'," +
                             "'" + strDeviceType.toString() + "'); INSERT INTO users(username,password,Devicetype)VALUES ('admin','rse-ng1','" + strDeviceType.toString() + "');";
                     if (db.dynamicInsert(LoginActivity.this,sql)) {
-                        userPreference.putString("DeviceID", Global.globalDeviceIMEI);
-                        userPreference.putString("UserID", userName);
-                        userPreference.apply();
+//                        userPreference.putString("DeviceID", Global.globalDeviceIMEI);
+//                        userPreference.putString("UserID", userName);
+//                        userPreference.apply();
 
                         handler.sendEmptyMessage(0);
                         Global.AssetDialog("Record saved!!", LoginActivity.this).create().show();
