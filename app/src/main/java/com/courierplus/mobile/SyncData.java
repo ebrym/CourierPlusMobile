@@ -428,7 +428,7 @@ public class SyncData extends Service {
 //            String prefsDeviceID = prefs.getString("DeviceID", null);
 //            String prefsUserID = prefs.getString("UserID", null);
 //  String DeviceID = prefs.getString("DeviceID", "NA");//arg0[1];
-//                String UserID = prefs.getString("UserID", "NA");//arg0[2];
+//            String UserID = prefs.getString("UserID", "NA");//arg0[2];
 //            Log.d("SYNC: DEVICEID ", prefsDeviceID );
 //            Log.d("SYNC: USERID ", prefsUserID );
             // add parameter or query string

@@ -24,6 +24,7 @@
    <uses-feature android:name="android.hardware.camera.autofocus" />
    <uses-feature android:name="android.hardware.location.gps" />
 
+
    <application
        xmlns:tools="http://schemas.android.com/tools"
        android:allowBackup="true"
@@ -89,6 +90,7 @@
           android:screenOrientation="portrait" />
 
       <service android:name=".GPSService" />
+<!--      <service android:name=".LocationTrack" />-->
       <service android:name=".SyncData" />
 
       <activity
