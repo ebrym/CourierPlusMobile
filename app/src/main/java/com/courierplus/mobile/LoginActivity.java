@@ -7,7 +7,9 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
@@ -16,9 +18,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -74,41 +78,30 @@ public class LoginActivity extends AppCompatActivity {
        // userPreference = getSharedPreferences(USER_DETAILS, MODE_PRIVATE).edit();
         // get deviceid
 
-
         TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Build.VERSION.SDK_INT < Build.VERSION_CODES.P )
         {
             String[] per = {Manifest.permission.READ_PHONE_STATE};
             requestPermissions(per, 1);
 
             if (ActivityCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && Build.VERSION.SDK_INT < Build.VERSION_CODES.P ) {
                     Global.globalDeviceIMEI  = tm.getImei();
                 }else {
                     Global.globalDeviceIMEI  = tm.getDeviceId();
                 }
 
             }
-//            else {
-//
-//                //Log.d("Here : ", "> not build");
-//                Global.globalDeviceIMEI  = tm.getDeviceId();
-//            }
         }else{
 
             //Log.d("Here : ", "> Default");
-            Global.globalDeviceIMEI  = tm.getDeviceId();
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ) {
+                Global.globalDeviceIMEI  = tm.getDeviceId();
+            }
         }
 
-       // Log.d("User IMEI : ", Global.globalDeviceIMEI);
+        Log.d("User IMEI : ", Global.globalDeviceIMEI);
 
-
-
-       /* startService(new Intent(LoginActivity.this,SyncData.class));
-        // stop synching service
-        if(Global.globalUserName.toString().equals("") || Global.globalDeviceIMEI.toString().equals("")) {
-            stopService(new Intent(LoginActivity.this,SyncData.class));
-        }*/
 
         // get Instance  of Database Adapter
         db=new DataDB();
@@ -329,6 +322,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -357,7 +351,7 @@ public class LoginActivity extends AppCompatActivity {
             // Making a request to url and getting response
             String jsonStr = webreq.makeWebServiceCall(Global.globalURLLocal + "MobileUsersByDeviceID_Fetch", WebRequest.POST, params);
             Log.d("Response: ", "> " + jsonStr);
-            //Log.d("Device ID : ", "> " + DeviceID);
+            Log.d("Device ID : ", "> " + DeviceID);
             //Log.d("DeviceID: ", "> " + DeviceID.toString());
 
             if (jsonStr.length() > 85)
