@@ -30,7 +30,8 @@ import java.io.InputStreamReader;
 public class Global {
     //public static String globalURLLocalTest = "http://192.100.64.228/MobileAdmin/service.asmx/";
     //public static String globalURLLocal = "http://52.59.230.245/mobileadmin/service.asmx/";
-    public static String globalURLLocal = "http://35.157.66.43/mobileadmin/service.asmx/";
+    //public static String globalURLLocal = "http://35.157.66.43/mobileadmin/service.asmx/";
+    public static String globalURLLocal = "http://mobile.courierplus-ng.com/service.asmx/";
    //public static String globalURLLocal = "http://192.100.64.10:1264/service.asmx/";
    // public static String globalURL = "https://www.redstarplc.com:8444/mobileservice/service.asmx/";
 

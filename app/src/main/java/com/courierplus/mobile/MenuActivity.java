@@ -394,9 +394,13 @@ private class sendGPSLocation extends AsyncTask<String, String, String> {
         super.onResume();
 
         Global.globalBatchStatus = false;
-        if (!checkPlayServices()) {
-            locationTv.setText("You need to install Google Play Services to use the App properly");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (!checkPlayServices()) {
+                Global.AssetDialog("You need to install Google Play Services to use the App properly", MenuActivity.this).create().show();
+
+            }
         }
+
     }
 
     @Override
